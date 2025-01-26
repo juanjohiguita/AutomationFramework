@@ -1,4 +1,4 @@
-package utils.constants;
+package core.elememts;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -7,7 +7,7 @@ import org.testng.IAnnotationTransformer;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.ITestAnnotation;
-import pages.driver.DriverManager;
+import core.driver.DriverManager;
 
 import java.io.File;
 import java.io.IOException;

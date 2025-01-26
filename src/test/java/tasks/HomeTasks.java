@@ -1,6 +1,6 @@
 package tasks;
 import pages.HomePage;
-import pages.actions.WaitActions;
+import core.actions.WaitActions;
 
 
 public class HomeTasks extends HomePage {
