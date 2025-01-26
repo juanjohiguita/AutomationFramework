@@ -1,10 +1,9 @@
 package pages.basePage;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import pages.driver.DriverConfiguration;
+import pages.driver.DriverManager;
 
-public class BasePage extends DriverConfiguration implements PageBehavior {
+public class BasePage extends DriverManager implements PageBehavior {
 
     public BasePage() {
         PageFactory.initElements(getWebDriver(), this);
