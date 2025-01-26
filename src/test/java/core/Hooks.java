@@ -1,4 +1,4 @@
-package stepsDefinition;
+package core;
 
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
@@ -11,8 +11,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import pages.driver.DriverManager;
-import utils.constants.Constants;
+import core.driver.DriverManager;
+import core.constants.Constants;
 
 import java.lang.reflect.Method;
 

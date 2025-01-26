@@ -1,7 +1,7 @@
 package pages.basePage;
 
 import org.openqa.selenium.support.PageFactory;
-import pages.driver.DriverManager;
+import core.driver.DriverManager;
 
 public class BasePage extends DriverManager implements PageBehavior {
 

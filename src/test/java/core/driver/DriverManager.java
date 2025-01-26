@@ -1,10 +1,6 @@
-package pages.driver;
+package core.driver;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
 public abstract class DriverManager {
     private static WebDriver driver;

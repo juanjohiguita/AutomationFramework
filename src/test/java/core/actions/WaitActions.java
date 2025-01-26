@@ -1,6 +1,6 @@
-package pages.actions;
+package core.actions;
 
-import pages.driver.DriverManager;
+import core.driver.DriverManager;
 import java.time.Duration;
 
 public abstract class WaitActions {
