@@ -1,10 +1,10 @@
 package stepsDefinition;
 
+import core.actions.WaitActions;
 import core.driver.DriverManager;
 import core.hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
-import io.qameta.allure.testng.AllureTestNg;
 import tasks.HomeTasks;
 
 public class HomeStepsDefinition {
@@ -15,9 +15,9 @@ public class HomeStepsDefinition {
     @Given("^I navigate to (Online Products)")
     public void navigateTo(String option)  {
         Allure.step("I navigate to " + option);
-
         homeTasks.clickOnMenuBtn();
         if (option.equalsIgnoreCase("Online Products")) {
+            WaitActions.waitForElementToBeClickable(homeTasks.getOnlineProductsBtn(), 10);
             homeTasks.getOnlineProductsBtn().click();
         }
     }
