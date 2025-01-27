@@ -20,7 +20,6 @@ public class HomePage extends BasePage {
     private WebElement onlineProductsBtn;
 
     public WebElement getMenuBtn() {
-
         return DriverManager.getWebDriver().findElement(By.xpath("//input[@type='checkbox']"));
     }
 

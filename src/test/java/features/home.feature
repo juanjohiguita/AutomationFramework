@@ -6,6 +6,5 @@ Feature: HomePage Feature
 
   @this
   Scenario: Verify homepage of the app
-    Given I open the page
     Given I navigate to Online Products
 
