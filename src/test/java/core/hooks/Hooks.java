@@ -1,5 +1,6 @@
-package core;
+package core.hooks;
 
+import core.utils.GeneralUtils;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -67,20 +68,8 @@ public class Hooks {
     }
 
 
-
-    @Given("I setup the execution environment and open the page")
-    public void setupAndOpenPage() throws InterruptedException {
-        setupChrome();
-        openThePage();
-    }
-
-    @Given("I open the page")
-    public void openThePage() throws InterruptedException {
-        String url = "https://anupdamoda.github.io/AceOnlineShoePortal/index.html";
-        DriverManager.getWebDriver().get(url);
-    }
-
     @AfterTest
-    public void afterTest() throws InterruptedException {
+    public void afterTest() {
+        DriverManager.getWebDriver().quit(); // Asegúrate de cerrar el navegador
     }
 }

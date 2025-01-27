@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.basePage.BasePage;
+import core.pages.basePage.BasePage;
 
 public class HomePage extends BasePage {
 

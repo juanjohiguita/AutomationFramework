@@ -1,5 +1,6 @@
-package pages.basePage;
+package core.pages.basePage;
 
+import core.pages.PageBehavior;
 import org.openqa.selenium.support.PageFactory;
 import core.driver.DriverManager;
 
