@@ -1,12 +1,10 @@
-package pages.driver;
+package core.driver;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import io.cucumber.core.plugin.ScenarioContextParallel;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 
-public abstract class DriverManager {
+public class DriverManager {
     private static WebDriver driver;
 
     public static WebDriver getWebDriver() {
@@ -15,6 +13,10 @@ public abstract class DriverManager {
 
     public static void setDriver(WebDriver webDriver) {
         driver = webDriver;
+    }
+
+    public static void openUrl(String url) {
+        driver.get(url);
     }
 
 }

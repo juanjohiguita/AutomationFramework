@@ -1,5 +1,6 @@
-package stepsDefinition;
+package core.hooks;
 
+import core.utils.GeneralUtils;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,8 +12,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import pages.driver.DriverManager;
-import utils.constants.Constants;
+import core.driver.DriverManager;
+import core.constants.Constants;
 
 import java.lang.reflect.Method;
 
@@ -45,8 +46,8 @@ public class Hooks {
         setupDriver(edgeDriver);
     }
 
-    public void setupDriver(WebDriver chromeDriver) {
-        DriverManager.setDriver(chromeDriver);
+    public void setupDriver(WebDriver webDriver) {
+        DriverManager.setDriver(webDriver);
         DriverManager.getWebDriver().get(Constants.url);
     }
 
@@ -66,21 +67,8 @@ public class Hooks {
         }
     }
 
-
-
-    @Given("I setup the execution environment and open the page")
-    public void setupAndOpenPage() throws InterruptedException {
-        setupChrome();
-        openThePage();
-    }
-
-    @Given("I open the page")
-    public void openThePage() throws InterruptedException {
-        String url = "https://anupdamoda.github.io/AceOnlineShoePortal/index.html";
-        DriverManager.getWebDriver().get(url);
-    }
-
     @AfterTest
-    public void afterTest() throws InterruptedException {
+    public void afterTest() {
+        DriverManager.getWebDriver().close();
     }
 }
