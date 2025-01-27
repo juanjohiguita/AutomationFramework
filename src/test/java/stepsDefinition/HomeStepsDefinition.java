@@ -5,6 +5,8 @@ import core.hooks.Hooks;
 import io.cucumber.java.en.Given;
 import tasks.HomeTasks;
 
+import java.sql.Driver;
+
 public class HomeStepsDefinition {
 
     public static HomeTasks homeTasks = new HomeTasks();
@@ -21,7 +23,7 @@ public class HomeStepsDefinition {
     @Given("I open the page")
     public void openThePage() throws InterruptedException {
         String url = "https://anupdamoda.github.io/AceOnlineShoePortal/index.html";
-        DriverManager.getWebDriver().get(url);
+        DriverManager.openUrl(url);
     }
 
     @Given("I setup the execution environment and open the page")

@@ -10,36 +10,62 @@ import java.time.Duration;
 
 public abstract class WaitActions {
 
+    /**
+     * Set a implicit time with a specific time
+     * @param seconds time to do the implicit wait
+     */
     public static void implicitWait(int seconds){
         DriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 
-    public static WebElement waitForElementToBeVisible(WebElement webElement, int seconds) {
+    /**
+     * Waits until the element is visible
+     * @param webElement element to check the parameter
+     * @param seconds time to wait
+     */
+    public static void waitForElementToBeVisible(WebElement webElement, int seconds) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
-        return wait.until(ExpectedConditions.visibilityOf(webElement));
+        wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
-    // Espera hasta que el WebElement sea clickeable
-    public static void waitForElementToBeClickable(WebElement element, int seconds) {
+    /**
+     * Waits until the element is clickable
+     * @param webElement element to check the parameter
+     * @param seconds time to wait
+     */
+    public static void waitForElementToBeClickable(WebElement webElement, int seconds) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
-    // Espera hasta que el WebElement desaparezca (se vuelva invisible)
-    public static void waitForElementToDisappear(WebElement element, int seconds) {
+    /**
+     * Waits until the element is not visible
+     * @param webElement element to check the parameter
+     * @param seconds time to wait
+     */
+    public static void waitForElementToDisappear(WebElement webElement, int seconds) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.invisibilityOf(element));
+        wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
-    // Espera hasta que un elemento esté presente en el DOM (no necesariamente visible)
+    /**
+     * Waits until the element is not present in the DOM (not is required that the element is visible)
+     * @param locator element locator to check the parameter
+     * @param seconds time to wait
+     */
     public static void waitForElementToBePresent(By locator, int seconds) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
-    // Espera hasta que el texto de un WebElement cambie
-    public static void waitForTextToBeChanged(WebElement element, String oldText, int seconds) {
+    /**
+     * Waits until changes in the text for a WebElement
+     * @param webElement element to check the parameter
+     * @param oldText text that is expected change
+     * @param seconds time to wait
+     */
+    public static void waitForTextToBeChanged(WebElement webElement, String oldText, int seconds) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.textToBePresentInElement(element, oldText));
+        wait.until(ExpectedConditions.textToBePresentInElement(webElement, oldText));
     }
 }

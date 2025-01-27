@@ -6,7 +6,8 @@ import core.actions.WaitActions;
 public class HomeTasks extends HomePage {
 
     public void clickOnMenuBtn() {
-        WaitActions.waitForElementToBeClickable(getMenuBtn(), 10);
+        // TODO - IS REQUIRED IMPLEMENT A WAY TO SET THE CONTEXT OF A EXECUTION IN FOCUS WITH THE DRIVER
+        //WaitActions.waitForElementToBeClickable(getMenuBtn(), 20);
         getMenuBtn().click();
         WaitActions.implicitWait(3);
     }

@@ -1,5 +1,8 @@
 package pages;
 
+import core.driver.DriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import core.pages.basePage.BasePage;
@@ -13,11 +16,11 @@ public class HomePage extends BasePage {
     private WebElement onlineProductsBtn;
 
     public WebElement getMenuBtn() {
-        return menuBtn;
+        return DriverManager.getWebDriver().findElement(By.xpath("//input[@type='checkbox']"));
     }
 
     public WebElement getOnlineProductsBtn() {
-        return onlineProductsBtn;
+        return DriverManager.getWebDriver().findElement(By.xpath("//ul[@id='menu']//li[contains(text(), 'Online Products')]"));
     }
 
 
