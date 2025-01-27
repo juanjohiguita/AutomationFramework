@@ -5,8 +5,6 @@ import core.hooks.Hooks;
 import io.cucumber.java.en.Given;
 import tasks.HomeTasks;
 
-import java.sql.Driver;
-
 public class HomeStepsDefinition {
 
     public static HomeTasks homeTasks = new HomeTasks();

@@ -46,8 +46,8 @@ public class Hooks {
         setupDriver(edgeDriver);
     }
 
-    public void setupDriver(WebDriver chromeDriver) {
-        DriverManager.setDriver(chromeDriver);
+    public void setupDriver(WebDriver webDriver) {
+        DriverManager.setDriver(webDriver);
         DriverManager.getWebDriver().get(Constants.url);
     }
 
@@ -67,9 +67,8 @@ public class Hooks {
         }
     }
 
-
     @AfterTest
     public void afterTest() {
-        DriverManager.getWebDriver().quit(); // Asegúrate de cerrar el navegador
+        DriverManager.getWebDriver().close();
     }
 }
