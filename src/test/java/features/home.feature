@@ -1,4 +1,4 @@
-Feature: HomePage Feature
+Feature: HomePage
   This feature deal with home page components of the application
 
   Background: Setup of environment
@@ -6,6 +6,5 @@ Feature: HomePage Feature
 
   @this
   Scenario: Verify homepage of the app
-    Given I open the page
     Given I navigate to Online Products
 
