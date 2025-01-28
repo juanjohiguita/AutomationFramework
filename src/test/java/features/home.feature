@@ -1,4 +1,4 @@
-Feature: HomePage Feature
+Feature: HomePage
   This feature deal with home page components of the application
 
   Background: Setup of environment

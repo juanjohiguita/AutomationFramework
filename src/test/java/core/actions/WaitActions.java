@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public abstract class WaitActions {
+public abstract class WaitActions extends DriverManager{
 
     /**
      * Set a implicit time with a specific time

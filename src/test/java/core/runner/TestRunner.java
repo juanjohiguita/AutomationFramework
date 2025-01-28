@@ -11,7 +11,10 @@ import org.testng.annotations.Test;
         tags = "@this",                       // Etiquetas a ejecutar
         plugin = {
                 "pretty",
-                "json:target/cucumber-reports/cucumber.json"
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                "json:target/cucumber-reports/cucumber.json",
+                "html:target/cucumber-reports/cucumber.html",
+
         },
         monochrome = true // Salida limpia en la consola
 

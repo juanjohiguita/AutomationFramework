@@ -23,8 +23,7 @@ public class Hooks {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
-        ChromeDriver chromeDriver = new ChromeDriver(options);
-        setupDriver(chromeDriver);
+        setupDriver(new ChromeDriver(options));
         DriverManager.getWebDriver().manage().window().maximize();
     }
 
@@ -32,18 +31,14 @@ public class Hooks {
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("--remote-allow-origins=*");
         System.setProperty("webdriver.firefox.driver", System.getProperty("user.dir") + "/src/test/resources/firefoxdriver.exe");
-
-        FirefoxDriver firefoxDriver = new FirefoxDriver(options);
-        setupDriver(firefoxDriver);
+        setupDriver(new FirefoxDriver(options));
     }
 
     private void setupEdge() {
         EdgeOptions options = new EdgeOptions();
         options.addArguments("--remote-allow-origins=*");
         System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "/src/test/resources/edgedriver.exe");
-
-        EdgeDriver edgeDriver = new EdgeDriver(options);
-        setupDriver(edgeDriver);
+        setupDriver(new EdgeDriver(options));
     }
 
     public void setupDriver(WebDriver chromeDriver) {

@@ -5,12 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import core.pages.basePage.BasePage;
-import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
 
     public HomePage() {
-        PageFactory.initElements(DriverManager.getWebDriver(), this);
+        super();
     }
 
     @FindBy(xpath = "//input[@type='checkbox']")
