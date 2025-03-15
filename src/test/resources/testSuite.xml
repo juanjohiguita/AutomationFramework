@@ -3,7 +3,7 @@
 <suite name="suite to test">
     <test name="Run Tagged Scenarios">
         <classes>
-            <class name="core.runner.TestRunner" />
+            <class name="tests.LoginTest" />
         </classes>
     </test>
 </suite>

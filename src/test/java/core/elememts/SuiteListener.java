@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class SuiteListener implements ITestListener, IAnnotationTransformer {
+
     public void onTestFailure(ITestResult result) {
         String filename = System.getProperty("user.dir") + File.separator
                 + "screenshots" + File.separator + result.getMethod().getMethodName();
