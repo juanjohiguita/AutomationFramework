@@ -1,6 +1,7 @@
 package core.actions;
 
-import core.driver.DriverManager;
+import core.driver.Browser;
+import core.pages.basePage.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,14 +9,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public abstract class WaitActions extends DriverManager{
+public abstract class WaitActions {
 
     /**
      * Set a implicit time with a specific time
      * @param seconds time to do the implicit wait
      */
     public static void implicitWait(int seconds){
-        DriverManager.getWebDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+        BasePage.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 
     /**
@@ -24,7 +25,7 @@ public abstract class WaitActions extends DriverManager{
      * @param seconds time to wait
      */
     public static void waitForElementToBeVisible(WebElement webElement, int seconds) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
+        WebDriverWait wait = new WebDriverWait(BasePage.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
@@ -34,7 +35,7 @@ public abstract class WaitActions extends DriverManager{
      * @param seconds time to wait
      */
     public static void waitForElementToBeClickable(WebElement webElement, int seconds) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
+        WebDriverWait wait = new WebDriverWait(BasePage.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
@@ -44,7 +45,7 @@ public abstract class WaitActions extends DriverManager{
      * @param seconds time to wait
      */
     public static void waitForElementToDisappear(WebElement webElement, int seconds) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
+        WebDriverWait wait = new WebDriverWait(BasePage.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
@@ -54,7 +55,7 @@ public abstract class WaitActions extends DriverManager{
      * @param seconds time to wait
      */
     public static void waitForElementToBePresent(By locator, int seconds) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
+        WebDriverWait wait = new WebDriverWait(BasePage.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
@@ -65,7 +66,7 @@ public abstract class WaitActions extends DriverManager{
      * @param seconds time to wait
      */
     public static void waitForTextToBeChanged(WebElement webElement, String oldText, int seconds) {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(seconds));
+        WebDriverWait wait = new WebDriverWait(BasePage.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.textToBePresentInElement(webElement, oldText));
     }
 }

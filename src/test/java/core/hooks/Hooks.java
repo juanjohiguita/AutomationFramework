@@ -1,22 +1,29 @@
 package core.hooks;
 
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import core.driver.DriverManager;
+import core.Listeners.TestListener;
+import core.pages.basePage.BasePage;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import core.driver.Browser;
+import io.cucumber.java.Scenario;
+import org.testng.annotations.Listeners;
 
-import java.lang.reflect.Method;
+@Listeners(TestListener.class)
+public class Hooks {
 
-public class Hooks extends DriverManager {
-
-    @BeforeTest
-    @Parameters("browser")
-    public void beforeMethodMethod(String browser, Method testMethod) {
-        setupDriverByBrowserName(browser);
+    @Before( order = 0)
+    public void initDriver(Scenario scenario) {
+        BasePage.setDriver(Browser.createWebDriver());
     }
 
-    @AfterTest
-    public void afterTest() {
-        quitDriver();
+    @After(order = 2)
+    public void assertAll() {
+        //SoftAssertManager.getSoftAssert().assertAll();
     }
+
+    @After(order = 1)
+    public void closeDriver() {
+        BasePage.getDriver().quit();
+    }
+
 }

@@ -1,25 +1,22 @@
 package pages;
 
-import core.driver.DriverManager;
 import core.pages.basePage.BasePage;
-import org.openqa.selenium.By;
+import lombok.Getter;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
+@Getter
 public class CheckoutInformationPage extends BasePage {
 
-    public WebElement getFirstName() {
-        return DriverManager.getWebDriver().findElement(By.id("first-name"));
-    }
+    @FindBy(id = "first-name")
+    private WebElement firstName;
 
-    public WebElement getLastName() {
-        return DriverManager.getWebDriver().findElement(By.id("last-name"));
-    }
+    @FindBy(id = "last-name")
+    private WebElement lastName;
 
-    public WebElement getPostalCode() {
-        return DriverManager.getWebDriver().findElement(By.id("postal-code"));
-    }
+    @FindBy(id = "postal-code")
+    private WebElement postalCode;
 
-    public WebElement getContinueBtn() {
-        return DriverManager.getWebDriver().findElement(By.id("continue"));
-    }
+    @FindBy(id = "continue")
+    private WebElement continueBtn;
 }

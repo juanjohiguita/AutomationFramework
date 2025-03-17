@@ -1,8 +1,9 @@
 package utils;
 
+import core.driver.Browser;
+import core.pages.basePage.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import core.driver.DriverManager;
 
 import java.util.List;
 import java.util.Locale;
@@ -12,21 +13,21 @@ public abstract class ElementFetch {
     public WebElement getWebElement(String identifierType, String identifierValue) {
         switch (identifierType.toUpperCase(Locale.ROOT)) {
             case "xpath":
-                return DriverManager.getWebDriver().findElement(By.xpath(identifierValue));
+                return BasePage.getDriver().findElement(By.xpath(identifierValue));
             case "css":
-                return DriverManager.getWebDriver().findElement(By.cssSelector(identifierValue));
+                return BasePage.getDriver().findElement(By.cssSelector(identifierValue));
             case "id":
-                return DriverManager.getWebDriver().findElement(By.id(identifierValue));
+                return BasePage.getDriver().findElement(By.id(identifierValue));
             case "name":
-                return DriverManager.getWebDriver().findElement(By.name(identifierValue));
+                return BasePage.getDriver().findElement(By.name(identifierValue));
             case "tagname":
-                return DriverManager.getWebDriver().findElement(By.tagName(identifierValue));
+                return BasePage.getDriver().findElement(By.tagName(identifierValue));
             case "classname":
-                return DriverManager.getWebDriver().findElement(By.className(identifierValue));
+                return BasePage.getDriver().findElement(By.className(identifierValue));
             case "linkText":
-                return DriverManager.getWebDriver().findElement(By.linkText(identifierValue));
+                return BasePage.getDriver().findElement(By.linkText(identifierValue));
             case "partialLinkText":
-                return DriverManager.getWebDriver().findElement(By.partialLinkText(identifierValue));
+                return BasePage.getDriver().findElement(By.partialLinkText(identifierValue));
             default:
                 return null;
         }
@@ -35,21 +36,21 @@ public abstract class ElementFetch {
     public List<WebElement> getWebElements(String identifierType, String identifierValue) {
         switch (identifierType.toUpperCase(Locale.ROOT)) {
             case "xpath":
-                return DriverManager.getWebDriver().findElements(By.xpath(identifierValue));
+                return BasePage.getDriver().findElements(By.xpath(identifierValue));
             case "css":
-                return DriverManager.getWebDriver().findElements(By.cssSelector(identifierValue));
+                return BasePage.getDriver().findElements(By.cssSelector(identifierValue));
             case "id":
-                return DriverManager.getWebDriver().findElements(By.id(identifierValue));
+                return BasePage.getDriver().findElements(By.id(identifierValue));
             case "name":
-                return DriverManager.getWebDriver().findElements(By.name(identifierValue));
+                return BasePage.getDriver().findElements(By.name(identifierValue));
             case "tagname":
-                return DriverManager.getWebDriver().findElements(By.tagName(identifierValue));
+                return BasePage.getDriver().findElements(By.tagName(identifierValue));
             case "classname":
-                return DriverManager.getWebDriver().findElements(By.className(identifierValue));
+                return BasePage.getDriver().findElements(By.className(identifierValue));
             case "linkText":
-                return DriverManager.getWebDriver().findElements(By.linkText(identifierValue));
+                return BasePage.getDriver().findElements(By.linkText(identifierValue));
             case "partialLinkText":
-                return DriverManager.getWebDriver().findElements(By.partialLinkText(identifierValue));
+                return BasePage.getDriver().findElements(By.partialLinkText(identifierValue));
             default:
                 return null;
         }

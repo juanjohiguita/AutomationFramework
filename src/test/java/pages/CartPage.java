@@ -1,13 +1,13 @@
 package pages;
 
-import core.driver.DriverManager;
 import core.pages.basePage.BasePage;
-import org.openqa.selenium.By;
+import lombok.Getter;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
+@Getter
 public class CartPage extends BasePage {
 
-    public WebElement getCheckoutBtn() {
-        return DriverManager.getWebDriver().findElement(By.id("checkout"));
-    }
+    @FindBy(id = "checkout")
+    private WebElement checkoutBtn;
 }

@@ -1,7 +1,8 @@
 package tests;
 
 import core.actions.WaitActions;
-import io.qameta.allure.Step;
+import core.constants.Constants;
+import core.pages.basePage.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 1)
     public void fillLoginWithValidCredentials()  {
+        BasePage.openPageByUrl(Constants.url);
         loginPage.fillLoginWithValidCredentials();
         InventoryPage inventoryPage = new InventoryPage();
         inventoryPage.validatePageIsDisplayed();

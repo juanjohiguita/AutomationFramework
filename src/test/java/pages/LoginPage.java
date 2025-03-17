@@ -1,35 +1,26 @@
 package pages;
 
 import core.actions.WaitActions;
-import core.driver.DriverManager;
-import org.openqa.selenium.By;
+import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import core.pages.basePage.BasePage;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-
+@Getter
 public class LoginPage extends BasePage {
 
-    public LoginPage() {
-        PageFactory.initElements(driver, this);
-    }
+    @FindBy(id = "user-name")
+    private WebElement username;
 
-    public WebElement getErrorMessage() {
-        return DriverManager.getWebDriver().findElement(By.xpath("//h3[@data-test='error']"));
-    }
+    @FindBy(id = "password")
+    private WebElement password;
 
-    public WebElement getUsername() {
-        return DriverManager.getWebDriver().findElement(By.id("user-name"));
-    }
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private WebElement errorMessage;
 
-    public WebElement getPassword() {
-        return DriverManager.getWebDriver().findElement(By.id("password"));
-    }
-
-    public WebElement getLoginBtn() {
-        return DriverManager.getWebDriver().findElement(By.id("login-button"));
-    }
+    @FindBy(id = "login-button")
+    private WebElement loginBtn;
 
     public void fillLoginWithValidCredentials() {
         WaitActions.waitForElementToBeVisible(getUsername(), 5);

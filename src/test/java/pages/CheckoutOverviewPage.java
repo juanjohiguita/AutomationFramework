@@ -1,13 +1,14 @@
 package pages;
 
-import core.driver.DriverManager;
 import core.pages.basePage.BasePage;
-import org.openqa.selenium.By;
+import lombok.Getter;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
+@Getter
 public class CheckoutOverviewPage extends BasePage {
 
-    public WebElement getFinishBtn() {
-        return DriverManager.getWebDriver().findElement(By.id("finish"));
-    }
+    @FindBy(id = "finish")
+    private WebElement finishBtn;
+
 }
