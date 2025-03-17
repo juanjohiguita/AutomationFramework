@@ -1,6 +1,7 @@
 package pages;
 
 import core.actions.WaitActions;
+import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
 import core.pages.basePage.BasePage;
@@ -22,6 +23,7 @@ public class LoginPage extends BasePage {
     @FindBy(id = "login-button")
     private WebElement loginBtn;
 
+    @Step
     public void fillLoginWithValidCredentials() {
         WaitActions.waitForElementToBeVisible(getUsername(), 5);
         getUsername().sendKeys("standard_user");
@@ -31,7 +33,7 @@ public class LoginPage extends BasePage {
         getLoginBtn().click();
     }
 
-
+    @Step
     public void fillLoginWithInvalidCredentials() {
         WaitActions.waitForElementToBeVisible(getUsername(), 5);
         getUsername().sendKeys("adb");
@@ -41,6 +43,7 @@ public class LoginPage extends BasePage {
         getLoginBtn().click();
     }
 
+    @Step
     public void verifyErrorMessageIsDisplayed() {
         WaitActions.waitForElementToBeVisible(getErrorMessage(), 2);
         Assert.assertEquals(getErrorMessage().getText(), "Epic sadface: Username and password do not match any user in this service");

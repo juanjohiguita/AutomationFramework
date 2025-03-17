@@ -1,4 +1,4 @@
-package core.driver;
+package core.browser;
 
 import core.constants.Constants;
 import lombok.SneakyThrows;

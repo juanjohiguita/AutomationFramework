@@ -1,6 +1,5 @@
 package core.actions;
 
-import core.driver.Browser;
 import core.pages.basePage.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

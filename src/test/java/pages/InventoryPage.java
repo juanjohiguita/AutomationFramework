@@ -16,7 +16,7 @@ public class InventoryPage extends BasePage {
     @FindBy(id = "inventory_container")
     private WebElement inventoryContainer;
 
-    @FindBy(id = "shopping_cart_link")
+    @FindBy(id = "shopping_cart_container")
     private WebElement shoppingCartBtn;
 
     @FindBy(className = "pricebar")

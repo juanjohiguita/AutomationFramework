@@ -1,6 +1,6 @@
 package core.pages.basePage;
 
-import core.driver.Browser;
+import core.browser.Browser;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
