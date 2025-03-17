@@ -14,8 +14,10 @@ public abstract class BasePage {
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
     protected BasePage() {
-        if(getDriver() == null) {
-            setDriver(Browser.createWebDriver());
+        WebDriver driver = getDriver();
+        if (driver == null) {
+            driver = Browser.createWebDriver();
+            setDriver(driver);
         }
         try {
             PageFactory.initElements(getDriver(), this);
