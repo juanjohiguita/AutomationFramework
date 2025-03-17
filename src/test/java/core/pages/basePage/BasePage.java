@@ -1,6 +1,7 @@
 package core.pages.basePage;
 
 import core.browser.Browser;
+import core.constants.Constants;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +37,9 @@ public abstract class BasePage {
     }
 
     public static void setDriver(WebDriver driver) {
-        driverThreadLocal.set(driver); }
+        driverThreadLocal.set(driver);
+        openPageByUrl(Constants.url);
+    }
 
     public static void openPageByUrl(String url) {
         driverThreadLocal.get().get(url);

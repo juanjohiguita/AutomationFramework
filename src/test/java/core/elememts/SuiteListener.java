@@ -26,8 +26,4 @@ public class SuiteListener implements ITestListener, IAnnotationTransformer {
             e.printStackTrace();
         }
     }
-
-    public void transform(ITestAnnotation annotation, Class testClass, Method testMethod) {
-        annotation.setRetryAnalyzer(RetryAnalyzer.class);
-    }
 }

@@ -1,6 +1,7 @@
 package pages;
 
 import core.actions.WaitActions;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import lombok.Getter;
 import org.openqa.selenium.WebElement;
@@ -23,28 +24,20 @@ public class LoginPage extends BasePage {
     @FindBy(id = "login-button")
     private WebElement loginBtn;
 
-    @Step
-    public void fillLoginWithValidCredentials() {
+    @Step("Fill login with username: {username} and password: {password}")
+    public void fillLogin(String username, String password) {
+        Allure.step("Fill login with valid credentials");
         WaitActions.waitForElementToBeVisible(getUsername(), 5);
-        getUsername().sendKeys("standard_user");
+        getUsername().sendKeys(username);
         WaitActions.waitForElementToBeVisible(getPassword(), 5);
-        getPassword().sendKeys("secret_sauce");
-        WaitActions.waitForElementToBeVisible(getLoginBtn(), 5);
-        getLoginBtn().click();
-    }
-
-    @Step
-    public void fillLoginWithInvalidCredentials() {
-        WaitActions.waitForElementToBeVisible(getUsername(), 5);
-        getUsername().sendKeys("adb");
-        WaitActions.waitForElementToBeVisible(getPassword(), 5);
-        getPassword().sendKeys("123");
+        getPassword().sendKeys(password);
         WaitActions.waitForElementToBeVisible(getLoginBtn(), 5);
         getLoginBtn().click();
     }
 
     @Step
     public void verifyErrorMessageIsDisplayed() {
+        Allure.step("Verify Error message is displayed");
         WaitActions.waitForElementToBeVisible(getErrorMessage(), 2);
         Assert.assertEquals(getErrorMessage().getText(), "Epic sadface: Username and password do not match any user in this service");
     }

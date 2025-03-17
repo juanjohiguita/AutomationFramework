@@ -9,7 +9,7 @@ import org.testng.*;
 import java.io.File;
 import java.io.IOException;
 
-public class TestListener implements ITestListener, IExecutionListener {
+public class TestListener implements ITestListener, IExecutionListener{
 
     @Override
     public void onExecutionStart() {
@@ -38,5 +38,4 @@ public class TestListener implements ITestListener, IExecutionListener {
             e.printStackTrace();
         }
     }
-
 }

@@ -9,15 +9,17 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import pages.*;
 import utils.InventoryUtils;
+import utils.UserFileReader;
 
-public class BuyFlowTest {
+public class PurchaseTest extends BaseTest{
 
-    LoginPage loginPage = new LoginPage();
-
-    @Test(priority = 1)
+    @Test(priority = 1, groups = {"validUser"}, description = "Buy lower price item")
     public void buyLowerPriceItem()  {
-        BasePage.openPageByUrl(Constants.url);
-        loginPage.fillLoginWithValidCredentials();
+
+        String userId = "validUser";
+        UserFileReader.Account account = UserFileReader.getAccountById(userId);
+        loginPage.fillLogin(account.getUsername(), account.getPassword());
+
         WaitActions.implicitWait(2);
 
         InventoryPage inventoryPage = new InventoryPage();
@@ -25,9 +27,8 @@ public class BuyFlowTest {
         String lowerPrice = InventoryUtils.removeCurrencySymbol(lowerPriceItem.getText());
         WebElement addToCardBtn = lowerPriceItem.findElement(By.xpath("//button[text()='Add to cart']"));
         addToCardBtn.click();
-        //WaitActions.waitForElementToBeClickable(inventoryPage.getShoppingCartBtn(), 4);
-        //inventoryPage.getShoppingCartBtn().click();
-
+        WaitActions.waitForElementToBeClickable(inventoryPage.getShoppingCartBtn(), 4);
+        inventoryPage.getShoppingCartBtn().click();
         CartPage cartPage = new CartPage();
         WaitActions.waitForElementToBeVisible(cartPage.getCheckoutBtn(), 4);
         cartPage.getCheckoutBtn().click();
